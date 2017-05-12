@@ -5,7 +5,47 @@
 </head>
 <body>
   <%- include ./partials/_nav %>
-  This is map
+  <div id="map"></div>
+  <script>
+    let map;
+
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 37.753717, lng: -122.388359},
+          zoom: 14
+        });
+      }
+
+        apiData = fetch('https://data.sfgov.org/resource/6a9r-agq8.json', {
+          method: 'get'
+        }).then(function(response) {
+          return response.json();
+        }).then(function(data) {
+          data.forEach(function(elem, index) {
+            if (index < 150) {
+              let longitude = elem["location"]["coordinates"][0],
+              latitude = elem["location"]["coordinates"][1];
+
+              marker = new google.maps.Marker({
+                position: new google.maps.LatLng(latitude, longitude),
+                map: map
+              });
+
+              let infowindow = new google.maps.InfoWindow();
+
+              google.maps.event.addListener(marker, 'click', (function(marker) {
+                return function() {
+                  infowindow.setContent(elem["applicant"]);
+                  infowindow.open(map, marker);
+                }
+              })(marker));
+            }
+          })
+        });
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBpAtmWOjb_vzAFWRmMV9QFS05vQypXm6c&callback=initMap"
+    async defer>
+  </script>
 </body>
 </html>
 

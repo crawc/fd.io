@@ -5,6 +5,7 @@
 </head>
 <body>
   <%- include ./partials/_nav %>
+  <form action="/favorites/<%food["_id"]%>?_method=PUT" method="POST">
     <div class="row">
     <div class="input-field col s6">
       <input name="name" id="foodtruck-name" type="text" value="<%=food.name%>">
@@ -15,6 +16,7 @@
       <label for="address">Address of Food Truck</label>
     </div>
   <input class="btn waves-effect waves-light" type="submit" value="Submit">
+  </form>
 </body>
 </html>
 

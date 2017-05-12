@@ -1,7 +1,13 @@
-body {
-
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 a {
   color: #00B7FF;
+}
+
+#map {
+  height: 80%;
 }
