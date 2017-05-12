@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ./partials/_head %>
+  </head>
+  <body>
+    <% include ./partials/_nav %>
+    <div class="fd-container container">
+      <h1 class="fd-header">Add a New Place</h1>
+      <div class="row">
+        <form class="col s12" action="/favorites" method="POST">
+          <% include ./partials/_form %>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
