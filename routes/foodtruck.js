@@ -11,6 +11,6 @@ router.post('/favorites', foodTruckController.create);
 router.get('/favorites/:id', foodTruckController.show);
 router.get('/favorites/:id/edit', foodTruckController.edit);
 router.put('/favorites/:id', foodTruckController.update);
-router.delete('/favorites', foodTruckController.delete);
+router.delete('/favorites/:id', foodTruckController.delete);
 
 module.exports = router;

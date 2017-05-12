@@ -16,8 +16,12 @@
             <div class="card-content">
               <%= food.address %>
             </div>
-            <a href="/favorites/<%= food["_id"] %> %>/edit">Edit</a>&nbsp&nbsp&nbsp|&nbsp&nbsp
-            <a href="/favorites/<%= food["_id"] %>">Delete</a>
+            <form action="/favorites/<%= food["_id"] %>/edit" method="GET">
+              <button class="waves-effect waves-teal btn-flat" type="submit">Edit</button>
+            </form>
+            <form action="/favorites/<%= food["_id"]%>?_method=DELETE" method="POST">
+              <button class="waves-effect waves-teal btn-flat" type="submit">Delete</button>
+            </form>
           </div>
         </div>
       </div>

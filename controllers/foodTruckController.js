@@ -23,15 +23,25 @@ var foodTruckController = {
   show: function(req, res, next){
     res.render('show');
   },
+
   delete: function(req, res, next){
+    Food.findByIdAndRemove(req.params.id, function(err) {
+      if (err) return res.redirect('/favorites');
+      res.redirect('/');
+    });
 
   },
   map: function(req, res, next){
-    res.send('Homepage');
+    res.render('map');
   },
+
   edit: function(req, res, next){
-    res.render('edit')
+    Food.findById(req.params.id, function(err, data){
+      if (err) return res.render('edit');
+      res.render('edit', {food: data})
+    });
   },
+
   update: function(req, res, next){
 
   }

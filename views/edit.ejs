@@ -1,1 +1,21 @@
-This is edit
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include ./partials/_head %>
+</head>
+<body>
+  <%- include ./partials/_nav %>
+    <div class="row">
+    <div class="input-field col s6">
+      <input name="name" id="foodtruck-name" type="text" value="<%=food.name%>">
+      <label for="name">Name of Food Truck</label>
+    </div>
+    <div class="input-field col s6">
+      <input name="address" id="address" type="text" class="validate" value="<%=food.address%>">
+      <label for="address">Address of Food Truck</label>
+    </div>
+  <input class="btn waves-effect waves-light" type="submit" value="Submit">
+</body>
+</html>
+
+
