@@ -5,7 +5,7 @@
 </head>
 <body>
   <%- include ./partials/_nav %>
-  <form action="/favorites/<%food["_id"]%>?_method=PUT" method="POST">
+  <form action="/favorites/<%=food["_id"]%>?_method=PUT" method="POST">
     <div class="row">
     <div class="input-field col s6">
       <input name="name" id="foodtruck-name" type="text" value="<%=food.name%>">

@@ -43,11 +43,11 @@ var foodTruckController = {
   },
 
   update: function(req, res, next){
-    Food.findByIdAndUpdate(req.params.id, function(err){
+    Food.findByIdAndUpdate(req.params.id, req.body, function(err){
       if (err) return res.render('edit');
       res.redirect('/favorites');
-    })
+    });
   }
-};
+}
 
 module.exports = foodTruckController;
